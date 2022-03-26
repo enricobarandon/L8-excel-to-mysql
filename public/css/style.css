@@ -1,0 +1,8 @@
+.arena-overview {
+    overflow-x: auto;
+    width: 100%;
+    display: block;
+}
+.overview .small-box {
+    max-height: 92px;
+}
