@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" rel="stylesheet">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
       <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -46,8 +48,14 @@
         </a>
         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="/logout" class="dropdown-item">
-            <span class="text-sm">Log out</span>
+          <a href="#" class="dropdown-item">
+            <form 
+              action="/logout"
+              method="post">
+              <!-- <span class="text-sm">Log out</span> -->
+              @csrf
+              <button type="submit" class="text-sm">Log out</button>
+            </form>
           </a>
           <div class="dropdown-divider"></div>
         </div>
@@ -164,10 +172,39 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script type="text/javascript">
-    $("document").ready(function(){
-        // alert('tes');
-    });
+    $( function() {
+		var dateFormat = "mm/dd/yy",
+			from = $( "#from" )
+				.datepicker({
+					changeMonth: true,
+					numberOfMonths: 1
+				})
+				.on( "change", function() {
+					to.datepicker( "option", "minDate", getDate( this ) );
+				}),
+			to = $( "#to" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: true,
+				numberOfMonths: 1,
+        maxDate: 0
+			})
+			.on( "change", function() {
+				from.datepicker( "option", "maxDate", getDate( this ) );
+			});
+
+		function getDate( element ) {
+			var date;
+			try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			} catch( error ) {
+				date = null;
+			}
+
+			return date;
+		}
+	} );
 </script>
 
 </html>
