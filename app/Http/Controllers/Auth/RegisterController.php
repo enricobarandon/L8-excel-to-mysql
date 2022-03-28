@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\ArenaOverview;
+use App\ActivityLogs;
+use App\UserType;
 
 class RegisterController extends Controller
 {
@@ -56,6 +58,7 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'user_type' => ['required', 'numeric']
         ]);
     }
 
@@ -67,20 +70,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = Auth::user();
+
+        $form = [
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'type_id' => $data['user_type'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['password'])
+        ];
+
+        ActivityLogs::create([
+            'type' => 'create_user',
+            'user_id' => $user->id,
+            'assets' => json_encode($form)
         ]);
+
+        return User::create($form);
     }
 
     public function showRegistrationForm() {
         $user = Auth::user();
         $arenaOverview = ArenaOverview::all();
+        $userType = UserType::get();
         if ($user->type_id != '1') {
             return redirect('/home')->withError('Permission denied.');
         }
-        return view('auth.register');
+        return view('auth.register', [
+            'user_type' => $userType
+        ]);
     }
 }

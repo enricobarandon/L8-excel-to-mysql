@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row justify-content-center">
+        
+        @if($userType == 'Administrator')
         <div class="col-md-12">
             <div class="card card-primary">
                 <div class="card-header">{{ __('Action') }}</div>
@@ -28,6 +31,8 @@
                 </div>
             </div>
         </div>
+        @endif
+
     </div>
 
     <div class="card card-primary">
@@ -59,6 +64,8 @@
                 </div>
             </form>
 
+
+            @if($userType == 'Administrator')
             <div class="row" style="border-top:20px;margin-top:20px;">
                 <div class="col-md-12">
                     <table class="table table-striped arena-overview">
@@ -86,74 +93,13 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            @php
-                                $total_initial_account_point = 0;
-                                $total_current_agent_wallet = 0;
-                                $total_current_agent_commission = 0;
-                                $total_total_loading = 0;
-                                $total_total_load_withdrawal = 0;
-                                $total_total_commission_cashout = 0;
-                                $total_must_total_players_point = 0;
-                                $total_actual_players_point = 0;
-                                $total_total_bets = 0;
-                                $total_total_rake = 0;
-                                $total_rake_without_agent_commission = 0;
-                                $total_player_point_difference = 0;
-                                $total_initial_agent_commission = 0;
-                                $total_total_agent_commission = 0;
-                                $total_total_processed_commission = 0;
-                                $total_total_unprocessed_commission = 0;
-                                $total_commission_difference = 0;
-                            @endphp
-
-                            @foreach($arenaOverview as $index => $value)
-                                @php
-                                    $total_initial_account_point += floatval($value->initial_account_point);
-                                    $total_current_agent_wallet += $value->current_agent_wallet;
-                                    $total_current_agent_commission += $value->current_agent_commission;
-                                    $total_total_loading += $value->total_loading;
-                                    $total_total_load_withdrawal += $value->total_load_withdrawal;
-                                    $total_total_commission_cashout += $value->total_commission_cashout;
-                                    $total_must_total_players_point += $value->must_total_players_point;
-                                    $total_actual_players_point += $value->actual_players_point;
-                                    $total_total_bets += $value->total_bets;
-                                    $total_total_rake += $value->total_rake;
-                                    $total_rake_without_agent_commission += $value->rake_without_agent_commission;
-                                    $total_player_point_difference += $value->player_point_difference;
-                                    $total_initial_agent_commission += $value->initial_agent_commission;
-                                    $total_total_agent_commission += $value->total_agent_commission;
-                                    $total_total_processed_commission += $value->total_processed_commission;
-                                    $total_total_unprocessed_commission += $value->total_unprocessed_commission;
-                                    $total_commission_difference += $value->commission_difference;
-                                @endphp
-                                <tr>
-                                    <td>{{ $value->date }}</td>
-                                    <td>{{ $value->site }}</td>
-                                    <td>{{ number_format($value->initial_account_point,2) }}</td>
-                                    <td>{{ number_format($value->current_agent_wallet,2) }}</td>
-                                    <td>{{ number_format($value->current_agent_commission,2) }}</td>
-                                    <td>{{ number_format($value->total_loading,2) }}</td>
-                                    <td>{{ number_format($value->total_load_withdrawal,2) }}</td>
-                                    <td>{{ number_format($value->total_commission_cashout,2) }}</td>
-                                    <td>{{ number_format($value->must_total_players_point,2) }}</td>
-                                    <td>{{ number_format($value->actual_players_point,2) }}</td>
-                                    <td>{{ number_format($value->total_bets,2) }}</td>
-                                    <td>{{ number_format($value->total_rake,2) }}</td>
-                                    <td>{{ number_format($value->rake_without_agent_commission,2) }}</td>
-                                    <td>{{ number_format($total_player_point_difference,2) }}</td>
-                                    <td>{{ number_format($value->initial_agent_commission,2) }}</td>
-                                    <td>{{ number_format($value->total_agent_commission,2) }}</td>
-                                    <td>{{ number_format($value->total_processed_commission,2) }}</td>
-                                    <td>{{ number_format($value->total_unprocessed_commission,2) }}</td>
-                                    <td>{{ number_format($value->commission_difference,2) }}</td>
-                                </tr>
-                            @endforeach
-
+                            {!! $arenaOverview !!}
                         </tbody>
                     </table>
                 </div>
             </div>
+            @endif
+
         </div>
     </div>
     <div class="card card-info">

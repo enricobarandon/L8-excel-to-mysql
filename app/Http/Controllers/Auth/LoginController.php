@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\UserType;
+use App\ActivityLogs;
 
 class LoginController extends Controller
 {
@@ -33,6 +34,11 @@ class LoginController extends Controller
     {
         $user = Auth::user();
         $role = $user->type_id;
+        ActivityLogs::create([
+            'type' => 'login',
+            'user_id' => $user->id,
+            'assets' => json_encode(['datetime' => time()])
+        ]);
         switch ($role) {
             case '1':
                 return '/home';
@@ -44,6 +50,17 @@ class LoginController extends Controller
                 return '/home';
                 break;
         }
+    }
+
+    public function logout() {
+        $user = Auth::user();
+        ActivityLogs::create([
+            'type' => 'logout',
+            'user_id' => $user->id,
+            'assets' => json_encode(['datetime' => time()])
+        ]);
+        Auth::logout();
+        return redirect('/');
     }
 
     /**
