@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -36,4 +37,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function displayAllUsers() {
+        $users = DB::table('users')
+                    ->get();
+
+        $usersTable = '';
+
+        foreach($users as $user) {
+            $usersTable .= '<tr>';
+            $usersTable .= '<td></td>';
+            $usersTable .= '</tr>';
+        }
+
+    }
 }

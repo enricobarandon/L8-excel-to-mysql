@@ -101,6 +101,7 @@
                                 $total_rake_without_agent_commission = 0;
                                 $total_player_point_difference = 0;
                                 $total_initial_agent_commission = 0;
+                                $total_total_agent_commission = 0;
                                 $total_total_processed_commission = 0;
                                 $total_total_unprocessed_commission = 0;
                                 $total_commission_difference = 0;
@@ -108,7 +109,7 @@
 
                             @foreach($arenaOverview as $index => $value)
                                 @php
-                                    $total_initial_account_point += $value->initial_account_point;
+                                    $total_initial_account_point += floatval($value->initial_account_point);
                                     $total_current_agent_wallet += $value->current_agent_wallet;
                                     $total_current_agent_commission += $value->current_agent_commission;
                                     $total_total_loading += $value->total_loading;
@@ -121,6 +122,7 @@
                                     $total_rake_without_agent_commission += $value->rake_without_agent_commission;
                                     $total_player_point_difference += $value->player_point_difference;
                                     $total_initial_agent_commission += $value->initial_agent_commission;
+                                    $total_total_agent_commission += $value->total_agent_commission;
                                     $total_total_processed_commission += $value->total_processed_commission;
                                     $total_total_unprocessed_commission += $value->total_unprocessed_commission;
                                     $total_commission_difference += $value->commission_difference;
@@ -285,9 +287,21 @@
                 <div class="col-lg-2 col-sm-3 overview">
                     <div class="small-box bg-info">
                         <div class="inner">
-                        <h5>{{ number_format($total_total_loading, 2) }}</h3>
+                        <h5>{{ number_format($total_initial_agent_commission, 2) }}</h3>
 
-                        <p>Total Loading</p>
+                        <p>Initial Agent Commission</p>
+                        </div>
+                        <div class="icon">
+                        <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-3 overview">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                        <h5>{{ number_format($total_total_agent_commission, 2) }}</h3>
+
+                        <p>Total Agent Commission</p>
                         </div>
                         <div class="icon">
                         <i class="fas fa-chart-pie"></i>
@@ -310,7 +324,7 @@
                 <div class="col-lg-2 col-sm-3 overview">
                     <div class="small-box bg-info">
                         <div class="inner">
-                        <h5>{{ number_format($total_total_processed_commission, 2) }}</h3>
+                        <h5>{{ number_format($total_player_point_difference, 2) }}</h3>
 
                         <p>Player Point Difference</p>
                         </div>
@@ -319,12 +333,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-2 col-sm-3 overview">
                     <div class="small-box bg-info">
                         <div class="inner">
-                        <h5>{{ number_format($total_total_unprocessed_commission, 2) }}</h3>
+                        <h5>{{ number_format($total_total_processed_commission, 2) }}</h3>
 
-                        <p>Initial Agent Commission</p>
+                        <p>Total Processed Commission</p>
                         </div>
                         <div class="icon">
                         <i class="fas fa-chart-pie"></i>
@@ -335,15 +350,28 @@
                 <div class="col-lg-2 col-sm-3 overview">
                     <div class="small-box bg-info">
                         <div class="inner">
-                        <h5>{{ number_format($total_commission_difference, 2) }}</h3>
+                        <h5>{{ number_format($total_total_unprocessed_commission, 2) }}</h3>
 
-                        <p>Total Processed Commission</p>
+                        <p>Total Unprocessed Commission</p>
                         </div>
                         <div class="icon">
                         <i class="fas fa-chart-pie"></i>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-2 col-sm-3 overview">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                        <h5>{{ number_format($total_commission_difference, 2) }}</h3>
+
+                        <p>Commission Difference</p>
+                        </div>
+                        <div class="icon">
+                        <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

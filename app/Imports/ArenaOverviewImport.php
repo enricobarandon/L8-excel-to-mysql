@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Carbon;
 
-class ArenaOverviewImport implements ToModel, WithHeadingRow, WithValidation, SkipsEmptyRows
+class ArenaOverviewImport implements ToModel, WithHeadingRow, SkipsEmptyRows
 {
     /**
     * @param array $row

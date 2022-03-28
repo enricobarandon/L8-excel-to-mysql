@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Auth;
+use App\ArenaOverview;
 
 class RegisterController extends Controller
 {
@@ -71,5 +73,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm() {
+        $user = Auth::user();
+        $arenaOverview = ArenaOverview::all();
+        if ($user->type_id != '1') {
+            return redirect('/home')->withError('Permission denied.');
+        }
+        return view('auth.register');
     }
 }
