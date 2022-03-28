@@ -15,10 +15,13 @@
                         @csrf
                         <div class="row">
                             <div class="col-5">
-                                <input type="file" class="form-control" name="import_file" />
+                                <input type="file" class="form-control @error('email') is-invalid @enderror" name="import_file" />
                             </div>
                             <div class="col-2">
                                 <button class="btn btn-primary" type="submit">Import</button>
+                            </div>
+                            <div class="col-5">
+                                @include('flash-message')
                             </div>
                         </div>
                     </form>

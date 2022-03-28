@@ -9,7 +9,24 @@ use App\Imports\ArenaOverviewImport;
 class ArenaOverviewController extends Controller
 {
     public function store(Request $request) {
-        Excel::import(new ArenaOverviewImport(), $request->file('import_file'));
-        return redirect('home');
+
+        $request->validate([
+            'import_file' => 'required',
+        ]);
+        
+        $import = Excel::import(new ArenaOverviewImport(), $request->file('import_file'));
+        
+        if ($import) {
+            return redirect('home')->with('success','File successfully imported.');
+        } else {
+            return redirect('home')->with('error','Something went wrong.');
+        }
+    }
+
+    public function messages()
+    {
+        return [
+            'import_file.required' => 'A title is required'
+        ];
     }
 }
