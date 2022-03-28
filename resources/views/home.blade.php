@@ -141,7 +141,7 @@
                                     <td>{{ number_format($value->total_bets,2) }}</td>
                                     <td>{{ number_format($value->total_rake,2) }}</td>
                                     <td>{{ number_format($value->rake_without_agent_commission,2) }}</td>
-                                    <td>{{ number_format($value->player_point_difference,2) }}</td>
+                                    <td>{{ number_format($total_player_point_difference,2) }}</td>
                                     <td>{{ number_format($value->initial_agent_commission,2) }}</td>
                                     <td>{{ number_format($value->total_agent_commission,2) }}</td>
                                     <td>{{ number_format($value->total_processed_commission,2) }}</td>

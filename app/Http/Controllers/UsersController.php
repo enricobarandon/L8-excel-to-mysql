@@ -14,7 +14,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users = Users::all();
+        $users = User::displayAllUsers();
         
         return view('admin.users', [
             'users' => $users

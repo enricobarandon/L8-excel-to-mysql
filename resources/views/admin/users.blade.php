@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>users</h1>
+
+<table class='table'>
+    <thead>
+        <th>#</th>
+        <th>Role</th>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>--</th>
+    </thead>
+    <tbody>{!! $users !!}</tbody>
+</table>
+
 @endsection
