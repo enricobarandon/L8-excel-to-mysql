@@ -95,10 +95,10 @@ class HomeController extends Controller
             $total_total_unprocessed_commission += $value->total_unprocessed_commission;
             $total_commission_difference += $value->commission_difference;
 
-            $arenaOverviewTable = '<tr>';
+            $arenaOverviewTable .= '<tr>';
             $arenaOverviewTable .= "<td> $value->date </td>";
             $arenaOverviewTable .= "<td> $value->site </td>";
-            $arenaOverviewTable .= '<td>' . number_format($value->initial_account_point,2) .'</td>';
+            $arenaOverviewTable .= '<td>'. number_format($value->initial_account_point,2) .'</td>';
             $arenaOverviewTable .= '<td>'. number_format($value->current_agent_wallet,2) .'</td>';
             $arenaOverviewTable .= '<td>'. number_format($value->current_agent_commission,2) .'</td>';
             $arenaOverviewTable .= '<td>'. number_format($value->total_loading,2)  .'</td>';
