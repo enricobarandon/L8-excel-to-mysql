@@ -29,6 +29,6 @@ class CreateActivityLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activitylogs');
+        Schema::dropIfExists('activity_logs');
     }
 }
