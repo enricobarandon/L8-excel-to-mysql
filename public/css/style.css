@@ -2,7 +2,58 @@
     overflow-x: auto;
     width: 100%;
     display: block;
+    font-size: 12px;
 }
 .overview .small-box {
     max-height: 92px;
+}
+.body-content {
+    height: 100vh;
+    margin: 0;
+    overflow:hidden;
+    background-color: #1e2024;
+    color: #9a9da2;
+    font-size: 15px;
+    line-height: 26px;
+    font-family: Source Sans Pro,sans-serif;
+    font-weight: 400;
+}
+.img-bg {
+    background-color: #1e2024;
+    background-image: url(/dist/img/bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative;
+    height: 100%;
+    width:100%;
+}
+.img-bg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 24px;
+    background-image: linear-gradient(to right, rgba(236, 240, 246, 0.15) 4px, transparent 4px), linear-gradient(to right, rgba(236, 240, 246, 0.15) 4px, transparent 4px), linear-gradient(to right, rgba(236, 240, 246, 0.15) 4px, transparent 4px), linear-gradient(to right, rgba(236, 240, 246, 0.15) 4px, transparent 4px), linear-gradient(to right, rgba(236, 240, 246, 0.15) 4px, transparent 4px), linear-gradient(to right, rgba(236, 240, 246, 0.15) 4px, transparent 4px), linear-gradient(to right, rgba(0, 0, 0, 0.1) 4px, transparent 4px), linear-gradient(to right, rgba(0, 0, 0, 0.11) 4px, transparent 4px);
+    background-repeat: repeat-x;
+    background-size: 36px 12px, 36px 15px, 36px 17px, 36px 20px, 36px 18px, 36px 15px, 72px 15px, 108px 18px;
+    background-position: 0 100%, 6px 100%, 12px 100%, 18px 100%, 24px 100%, 30px 100%, 6px 100%, 24px 100%;
+}
+.card-login {
+    border: 1px solid hsla(0,0%,100%,.05);
+    border-radius: 4px;
+    background-color: #292c31;
+    margin-bottom: 15px;
+}
+@media (min-width: 992px){
+    .login-container {
+        padding: 60px 0;
+    }
+}
+
+.arena-overview th {
+    background-color: #17a2b8;
+    color: #fff;
 }

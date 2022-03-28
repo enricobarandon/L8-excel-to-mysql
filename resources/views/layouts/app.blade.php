@@ -33,7 +33,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/home" class="nav-link">Home</a>
+        <!-- <a href="/home" class="nav-link">Home</a> -->
       </li>
     </ul>
 
@@ -41,25 +41,13 @@
     <ul class="navbar-nav ml-auto">
       
 
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-cog"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <form 
+    <form 
               action="/logout"
               method="post">
               <!-- <span class="text-sm">Log out</span> -->
               @csrf
-              <button type="submit" class="text-sm">Log out</button>
+              <button type="submit" class="btn btn-danger">Log out</button>
             </form>
-          </a>
-          <div class="dropdown-divider"></div>
-        </div>
-      </li>
       
     </ul>
   </nav>
@@ -81,7 +69,11 @@
           <img src="dist/img/default-150x150.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
+          @if($userType == 'Administrator')
           <a href="#" class="d-block">Admin</a>
+          @else
+          <a href="#" class="d-block">User</a>
+          @endif
         </div>
       </div>
 
@@ -90,13 +82,23 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
          
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="/home" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Home
               </p>
             </a>
           </li>
+          @if($userType == 'Administrator')
+          <li class="nav-item">
+            <a href="/users" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Users
+              </p>
+            </a>
+          </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -106,23 +108,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
     <div class="content">

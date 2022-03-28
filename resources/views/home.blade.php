@@ -44,19 +44,23 @@
             >
                 @csrf
                 <div class="row">
-                    <div class="col-9">
-                        <label for="from">From</label>
-                        <input type="text" id="from" name="from">
-                        <label for="to">to</label>
-                        <input type="text" id="to" name="to">
+                    <div class="col-3">
+                        <input class="form-control" placeholder="Date From" type="text" id="from" name="from">
+                    </div>
 
-                        <select name="site">
+                    <div class="col-3">
+                        <input class="form-control" placeholder="Date To" type="text" id="to" name="to">
+
+                    </div>
+
+                    <div class="col-2">
+                        <select class="form-control" name="site">
                             <option selected value="all"> -- ALL SITES --</option>
                             <option value="WPC2021">WPC2021</option>
                             <option value="WPC2022">WPC2022</option>
                         </select>
-
                     </div>
+
                     <div class="col-3">
                         <button class="btn btn-primary" type="submit">Filter</button>
                         <a href="{{ url('/home') }}" class="btn btn-danger">Reset</a>
