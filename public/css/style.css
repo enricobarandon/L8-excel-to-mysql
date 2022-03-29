@@ -56,4 +56,10 @@
 .arena-overview th {
     background-color: #17a2b8;
     color: #fff;
+    
+}
+
+.text-value {
+    font-size: 1.3125rem;
+    font-weight: 600;
 }

@@ -106,224 +106,123 @@
 
         </div>
     </div>
-    <div class="card card-info">
-        <div class="card-header">Arena Overview Total</div>
 
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_initial_account_point, 2) }}</h3>
-
-                        <p>Initial Account Point</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class=" card">
+                <div class="card-header">
+                    <strong><i class="fa fa-align-justify"></i>  ARENA OVERVIEW TOTAL </strong>
+                </div> 
+                <div class="card-group mb-0">
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_initial_account_point, 2) }}</div> 
+                            <small class="text-muted text-uppercase font-weight-bold">Initial Account Point </small>
                         </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
+                    </div> 
+                    <div class="card border-bottom-0">
+                    <div class="card-body pb-1 pt-1">
+                        <div class="text-value text-success">{{ number_format($total_current_agent_wallet, 2) }}</div>
+                            <small class="text-muted text-uppercase font-weight-bold">Current Agent Wallet</small>
+                        </div>
+                    </div> 
+                    <div class="card border-bottom-0">
+                    <div class="card-body pb-1 pt-1">
+                        <div class="text-value text-success">{{ number_format($total_current_agent_commission, 2) }}</div>
+                            <small class="text-muted text-uppercase font-weight-bold">Current Agent Commission</small>
+                        </div>
+                    </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_total_loading, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Total Loading</small>
+                            </div>
+                        </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-danger">{{ number_format($total_total_load_withdrawal, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Total Load Withdrawal</small>
+                            </div>
+                        </div> 
+                        <div class="card border-bottom-0">
+                            <div class="card-body pb-1 pt-1"><div class="text-value text-danger">{{ number_format($total_total_commission_cashout, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Total Commission Cashout</small>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="card-group mb-0">
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-danger">{{ number_format($total_must_total_players_point, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">*Must Total Player's Point</small>
+                            </div>
+                        </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value">{{ number_format($total_actual_players_point, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Actual Player's Point</small>
+                            </div>
+                        </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_total_bets, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Total Bets</small>
+                            </div>
+                        </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_total_rake, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Total RAKE</small>
+                            </div>
+                        </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_rake_without_agent_commission, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Rake Without Agent Commission</small>
+                            </div>
+                        </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-danger">{{ number_format($total_player_point_difference, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Player Point Difference</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group mb-0">
+                        <div class="card border-bottom-0">
+                            <div class="card-body pb-1 pt-1">
+                                <div class="text-value text-success">{{ number_format($total_initial_agent_commission, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Initial Agent Commission</small>
+                                </div>
+                            </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_total_agent_commission, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Total Agent Commission</small>
+                            </div>
+                        </div>
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-success">{{ number_format($total_total_processed_commission, 2) }}</div>
+                            <small class="text-muted text-uppercase font-weight-bold">Total Processed Commission</small>
+                        </div>
+                    </div>
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                        <div class="text-value text-success">{{ number_format($total_total_unprocessed_commission, 2) }}</div>
+                            <small class="text-muted text-uppercase font-weight-bold">Total UN-Processed Commission</small>
+                        </div>
+                    </div> 
+                    <div class="card border-bottom-0">
+                        <div class="card-body pb-1 pt-1">
+                            <div class="text-value text-danger">{{ number_format($total_commission_difference, 2) }}</div>
+                                <small class="text-muted text-uppercase font-weight-bold">Commission Difference</small>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_current_agent_wallet, 2) }}</h3>
-
-                        <p>Current Agent Wallet</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_current_agent_commission, 2) }}</h3>
-
-                        <p>Current Agent Commission</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_loading, 2) }}</h3>
-
-                        <p>Total Loading</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_load_withdrawal, 2) }}</h3>
-
-                        <p>Total Load Withdrawal</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_commission_cashout, 2) }}</h3>
-
-                        <p>Total Commission Cashout</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div classc="clearfix"></div> -->
-
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_must_total_players_point, 2) }}</h3>
-
-                        <p>Must Total Players Point</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_actual_players_point, 2) }}</h3>
-
-                        <p>Actual Players Point</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_bets, 2) }}</h3>
-
-                        <p>Total bets</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_rake, 2) }}</h3>
-
-                        <p>Total Rake</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_initial_agent_commission, 2) }}</h3>
-
-                        <p>Initial Agent Commission</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_agent_commission, 2) }}</h3>
-
-                        <p>Total Agent Commission</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_rake_without_agent_commission, 2) }}</h3>
-
-                        <p>Rake Without Agent Commission</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="clearfix"></div> -->
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_player_point_difference, 2) }}</h3>
-
-                        <p>Player Point Difference</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_processed_commission, 2) }}</h3>
-
-                        <p>Total Processed Commission</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_total_unprocessed_commission, 2) }}</h3>
-
-                        <p>Total Unprocessed Commission</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 overview">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                        <h5>{{ number_format($total_commission_difference, 2) }}</h3>
-
-                        <p>Commission Difference</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
+            </div>
     </div>
 </div>
 
