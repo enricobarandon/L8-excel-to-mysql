@@ -2,6 +2,8 @@
 
 @section('content')
 
+<link rel="stylesheet" href="css/style.css">
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         
@@ -45,11 +47,11 @@
                 @csrf
                 <div class="row">
                     <div class="col-3">
-                        <input class="form-control" placeholder="Date From" type="text" id="from" name="from">
+                        <input class="form-control" placeholder="Date From" type="text" id="from" name="from" value="{{ $from }}">
                     </div>
 
                     <div class="col-3">
-                        <input class="form-control" placeholder="Date To" type="text" id="to" name="to">
+                        <input class="form-control" placeholder="Date To" type="text" id="to" name="to" value="{{ $to }}">
 
                     </div>
 
@@ -63,7 +65,7 @@
 
                     <div class="col-3">
                         <button class="btn btn-primary" type="submit">Filter</button>
-                        <a href="{{ url('/home') }}" class="btn btn-danger">Reset</a>
+                        <a href="{{ url('/home') }}" class="btn btn-danger btn-reset">Reset</a>
                     </div>
                 </div>
             </form>
@@ -231,6 +233,4 @@
     </div>
 </div>
 
-
-<link rel="stylesheet" href="css/style.css">
 @endsection

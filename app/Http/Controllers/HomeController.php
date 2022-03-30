@@ -34,15 +34,11 @@ class HomeController extends Controller
         
         if ($from) {
             $from = date('Y-m-d', strtotime($from));
-        } else {
-            $from = date('Y-m-d', strtotime('-5 days',time()));
-        }
+        } 
 
         if ($to) {
             $to = date('Y-m-d', strtotime($to));
-        } else {
-            $to = date('Y-m-d', time());
-        }
+        } 
 
         if ($request->isMethod('post')) {
             $arenaOverview = ArenaOverview::whereBetween('date', [$from . ' 00:00:00', $to . ' 23:59:59']);
@@ -140,7 +136,10 @@ class HomeController extends Controller
             'total_total_processed_commission' => $total_total_processed_commission,
             'total_total_unprocessed_commission' => $total_total_unprocessed_commission,
             'total_commission_difference' => $total_commission_difference,
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'from' => $from == "" ? "" : date('m/d/Y', strtotime($from)),
+            'to' => $to == "" ? "" : date('m/d/Y', strtotime($to)),
+            'site' => $site
         ]);
     }
 }
