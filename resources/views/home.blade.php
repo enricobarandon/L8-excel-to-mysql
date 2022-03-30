@@ -55,9 +55,9 @@
 
                     <div class="col-2">
                         <select class="form-control" name="site">
-                            <option selected value="all"> -- ALL SITES --</option>
-                            <option value="WPC2021">WPC2021</option>
-                            <option value="WPC2022">WPC2022</option>
+                            <!-- <option selected value="all"> -- ALL SITES --</option> -->
+                            <option selected value="WPC2021">WPC2021</option>
+                            <!-- <option value="WPC2022">WPC2022</option> -->
                         </select>
                     </div>
 
