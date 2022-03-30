@@ -111,6 +111,7 @@
     box-shadow: none;
     transition: border-color .15s ease-in-out;
     color: #fff;
+    height: 52px;
 }
 #btnSignin {
     padding-left: 0;
