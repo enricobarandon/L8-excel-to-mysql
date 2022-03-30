@@ -51,9 +51,11 @@ class HomeController extends Controller
                 $arenaOverview = $arenaOverview->where('site', $site);    
             } 
     
-            $arenaOverview = $arenaOverview->get();
+            $arenaOverview = $arenaOverview->paginate(20);
+            $pagination = $arenaOverview->appends(array('value' => 'key'));
         } else {
-            $arenaOverview = ArenaOverview::all();
+            $arenaOverview = ArenaOverview::paginate(20);
+            $pagination = $arenaOverview->appends(array('value' => 'key'));
         }
 
         $total_initial_account_point = 0;
@@ -137,7 +139,8 @@ class HomeController extends Controller
             'total_total_agent_commission' => $total_total_agent_commission,
             'total_total_processed_commission' => $total_total_processed_commission,
             'total_total_unprocessed_commission' => $total_total_unprocessed_commission,
-            'total_commission_difference' => $total_commission_difference
+            'total_commission_difference' => $total_commission_difference,
+            'pagination' => $pagination
         ]);
     }
 }

@@ -101,6 +101,11 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="col">
+                    <div class="float-right">
+                        {!! $pagination !!}
+                    </div>
+                </div><!--col-->
             </div>
             @endif
 
