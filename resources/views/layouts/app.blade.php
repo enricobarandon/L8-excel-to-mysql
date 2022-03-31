@@ -98,6 +98,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/register" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Create Account
+              </p>
+            </a>
+          </li>
           @endif
         </ul>
       </nav>

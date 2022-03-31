@@ -85,7 +85,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'assets' => json_encode($form)
         ]);
-
+        
         return User::create($form);
     }
 
@@ -97,7 +97,8 @@ class RegisterController extends Controller
             return redirect('/home')->withError('Permission denied.');
         }
         return view('auth.register', [
-            'user_type' => $userType
+            'user_type' => $userType,
+            'userType' => UserType::find($user->type_id)->title
         ]);
     }
 }
