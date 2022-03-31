@@ -60,4 +60,9 @@ class User extends Authenticatable
 
         return $usersTable;
     }
+    
+    public function insertUser($dataArray){
+        return DB::table($this->table)
+            ->insert($dataArray);
+    }
 }
