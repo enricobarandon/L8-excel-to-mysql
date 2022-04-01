@@ -12,6 +12,8 @@ use Auth;
 use App\ArenaOverview;
 use App\ActivityLogs;
 use App\UserType;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -34,6 +36,18 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    // public function redirectTo() 
+    // {
+    //     $user = Auth::user();
+    //     $role = $user->type_id;
+    //     ActivityLogs::create([
+    //         'type' => 'created_user',
+    //         'user_id' => $user->id,
+    //         'assets' => json_encode(['datetime' => time()])
+    //     ]);
+        
+    //     return '/home';
+    // }
 
     /**
      * Create a new controller instance.
@@ -87,6 +101,14 @@ class RegisterController extends Controller
         ]);
         
         return User::create($form);
+    }
+
+    public function register(Request $request){
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        // $this->guard()->login($user);
+        return $this->registered($request, $user)
+                            ?: redirect($this->redirectPath())->with('success','User successfully created.');
     }
 
     public function showRegistrationForm() {

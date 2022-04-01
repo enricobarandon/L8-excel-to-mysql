@@ -20,19 +20,20 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             // return redirect(RouteServiceProvider::HOME);
-            $user = Auth::user();
-            $role = $user->type_id;
-            switch ($role) {
-                case '1':
-                    return '/home';
-                    break;
-                case '2':
-                    return '/';
-                    break;
-                default:
-                    return '/home';
-                    break;
-            }
+            // $user = Auth::user();
+            // $role = $user->type_id;
+            // switch ($role) {
+            //     case '1':
+            //         return '/home';
+            //         break;
+            //     case '2':
+            //         return '/';
+            //         break;
+            //     default:
+            //         return '/home';
+            //         break;
+            // }
+            return redirect("/home");
         }
 
         return $next($request);
